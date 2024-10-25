@@ -99,7 +99,7 @@ Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` 
 
 ---
 
-## **Integrantes**
+## **Autores**
 - [Carlos Ferreyros](https://www.linkedin.com/in/carlos-ferreyros-ba9a34102/)
 - [Giancarlo Poémape](www.linkedin.com/in/giancarlopoemape)
 - [Jhersin García](https://www.linkedin.com/in/jhersin-garcia-75aa6867/)
