@@ -56,7 +56,11 @@ Aquí tienes un ejemplo básico para realizar una recomendación:
 import pandas as pd
 
 # Cargar el dataset
-df = pd.read_csv('ruta_al_dataset/styles.csv', nrows=1000)  # Cargar una muestra del dataset
+def process_bad_line(line):
+  print(f"{line}") # solo si se desea imprimir las lineas con mal formato
+  return None
+
+df = pd.read_csv('fashion-dataset/styles.csv', on_bad_lines=process_bad_line, engine='python')  # Cargar una muestra del dataset
 
 # Filtrar productos basados en contenido
 result = recomendador.buscar_similares(product_id=37935)
@@ -72,10 +76,9 @@ fashion-bree/
 │   ├── images/           # Imágenes de productos
 │   └── styles/           # Información de estilos y metadatos en json
 ├── src/                  # Código fuente del proyecto
-├── src/                  # Código fuente del proyecto
 ├── requeriments.txt      # Dependencias del proyecto
 ├── README.md             # Este archivo
-└── recommender.ipynb        # Jupyter Notebook con pruebas y análisis
+└── recommender.ipynb     # Jupyter Notebook con analisis
 ```
 
 ---
