@@ -13,3 +13,4 @@ crash.log
 crash.*.log
 *.log
 profile_result
+.idea
