@@ -1,14 +1,40 @@
-# **Sistema de Recomendación de Productos con BTree**
+# **Sistema de Recomendación de Productos: Caso Fashion Product Images Dataset **
 
-Este proyecto es un sistema de recomendación de productos utilizando **filtrado por contenido** y **árboles B** como estructura de datos. Se basa en el **Fashion Product Images Dataset** de Kaggle, el cual contiene información detallada sobre productos de moda.
+## Tabla de Contenidos
+1. [Descripción General](#descripción-general)
+2. [Objetivos del Proyecto](#objetivos-del-proyecto)
+3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
+4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
+   - [Filtrado Basado en Contenido](#filtrado-basado-en-contenido)
+5. [Eficiencia y Optimización](#eficiencia-y-optimización)
+6. [Similitud de Usuarios y Productos](#similitud-de-usuarios-y-productos)
+7. [Simulación de Flujo de Datos en Tiempo Real](#simulación-de-flujo-de-datos-en-tiempo-real)
+8. [Pruebas y Resultados](#pruebas-y-resultados)
+9. [Análisis de Rendimiento](#análisis-de-rendimiento)
+10. [Documentación y Presentación](#documentación-y-presentación)
+11. [Herramientas Utilizadas](#herramientas-utilizadas)
+12. [Contribuciones](#contribuciones)
+13. [Licencia](#licencia)
+14. [Contacto](#contacto)
+15. [Referencias](#referencias)
+16. [Autores](#autores)
+    
+
+
+##  Descripción General
+Este proyecto es un sistema de recomendación de productos utilizando **filtrado por contenido** y **árboles B** como estructura de datos. Se basa en el **Fashion Product Images Dataset** de Kaggle, el cual contiene información detallada sobre productos de moda. Además, con la finalidad de poder generar una comparación de modelos, se usó MILVUS y SIFT.
 
 - Dataset: [Fashion Product Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/data)
 
-## **Descripción del Proyecto**
-
+## **Objetivos del Proyecto**
 El objetivo principal del proyecto es construir un sistema de recomendación que sugiera productos similares basados en las características de los productos, utilizando **filtrado por contenido**. Para almacenar y buscar eficientemente los productos, se utilizan **árboles B**.
 
-### **Características del Proyecto**
+- **Aplicar estructuras de datos**: Implementar y optimizar el sistema de recomendación, a través del uso de **Árboles B** para gestionar grandes volúmenes de datos de usuarios y productos.
+- **Manejo de algoritmos de búsqueda y ordenación**: Utilizar algoritmos eficientes para detectar patrones en los datos y generar recomendaciones en tiempo real.
+- **Desarrollo de un motor de recomendación**: Implementar técnicas de **Filtrado Basado en Contenido** para sugerir productos de interés para el usuario, basándose en la similitud de características de productos.
+
+### **Estructura de Datos utilizada*
+
 - **Filtrado por Contenido:** Se basa en la similitud de características como el tipo de producto, color, género, etc.
 - **Dataset:** Contiene imágenes y metadatos como `id`, `gender`, `productDisplayName` y `baseColour`.
 - **Árboles B:** Se utilizan para optimizar las búsquedas rápidas de productos dentro del dataset.
