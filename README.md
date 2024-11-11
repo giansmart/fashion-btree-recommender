@@ -153,7 +153,7 @@ En nuestro proyecot fue utilizado en MILVUS.
 
 **Fórmula:**
 
-![Coseno de Similitud](https://latex.codecogs.com/svg.image?\cos(\theta)=\frac{A\cdot B}{\left\|A\right\|\left\|B\right\|})
+![Coseno de Similitud](https://latex.codecogs.com/svg.image?\cos(\theta)=\frac{A\cdot%20B}{\|A\|\|B\|})
 
 **Interpretación:**
 - Un coseno de similitud de **1** indica que los vectores son idénticos en dirección.
@@ -162,6 +162,7 @@ En nuestro proyecot fue utilizado en MILVUS.
 
 **Aplicación:**
 Se utiliza para comparar la similitud entre los vectores característicos de los productos, identificando aquellos que comparten características similares.
+
 
 #### **Distancia Euclidiana**
 
