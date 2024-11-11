@@ -1,4 +1,4 @@
-# *Sistema de Recomendación de Productos: Caso Fashion Product Images Dataset *
+# Sistema de Recomendación de Productos: Caso Fashion Product Images Dataset 
 
 ## Tabla de Contenidos
 1. [Descripción General](#descripción-general)
