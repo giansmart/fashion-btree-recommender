@@ -157,7 +157,7 @@ Respecto a los resultados usando SIFT, el modelo obtuvo un mayor tiempo de proce
 En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
 
 
-### **Gráfico de Optimización**
+### **Gráfico de Comparación del uso de la memoria**
 
 ![Búsqueda en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/BthreeLibrary.png)
 *Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
@@ -210,22 +210,26 @@ El sistema está diseñado para distribuir de manera equilibrada las solicitudes
 
 ## **Conclusiones**
 
-1.⁠ ⁠El sistema de recomendación de filtro colaborativo funciona correctamente, y las consultas realizadas son bastante similares al query dado.
+## 1. Sistema de Recomendación de Filtro Colaborativo
+El sistema de recomendación de filtro colaborativo ha sido implementado y funciona correctamente. Las consultas realizadas muestran un alto grado de similitud con el query dado, lo que garantiza la efectividad de las recomendaciones basadas en las preferencias de los usuarios.
 
-2.⁠ ⁠Se ha implementado el sistema de recomendación utilizando la estructura de datos B-tree en dos situaciones: la primera, utilizando la memoria RAM, y la segunda, utilizando el espacio en la memoria secundaria (SSD).
+## 2. Implementación del B-tree
+Se ha implementado el sistema de recomendación utilizando la estructura de datos **B-tree** en dos modalidades:
+- **Memoria RAM**: Una versión que utiliza la memoria principal para almacenar y acceder a los datos de forma rápida.
+- **Memoria Secundaria (SSD)**: Una versión que almacena los datos en la memoria secundaria, optimizando el uso de la RAM.
 
-3.⁠ ⁠La implementación del B-tree que utiliza la memoria secundaria consume aproximadamente un tercio de la memoria en comparación con la implementación que utiliza la RAM.
+## 3. Comparación de Consumo de Memoria
+La implementación del **B-tree** que utiliza la memoria secundaria (SSD) ha demostrado consumir aproximadamente un tercio de la memoria que requiere la versión basada en **RAM**. Esta diferencia en el consumo de memoria es significativa y puede ser clave en entornos con limitaciones de recursos.
 
-4.⁠ ⁠En situaciones de memoria RAM limitada, es recomendable optar por utilizar la memoria secundaria, aunque esto podría implicar una pérdida en el tiempo de ejecución.
+## 4. Recomendaciones para Entornos con Memoria Limitada
+En situaciones donde la **memoria RAM** es limitada, se recomienda optar por la implementación basada en **memoria secundaria (SSD)**. Sin embargo, se debe considerar que esta elección puede conllevar una pérdida en el **tiempo de ejecución**, que puede afectar la latencia de las respuestas.
 
-5.⁠ ⁠El algoritmo para la extracción de características locales SIFT tiene un tiempo de ejecución bastante largo, cerca de 2 a 3 horas. A pesar de esto, la recomendación que genera no es muy precisa. Es posible que sea necesario afinar la heurística de distancia utilizada para mejorar los resultados.
+## 5. Evaluación del Algoritmo SIFT
+El algoritmo para la **extracción de características locales SIFT** presenta un tiempo de ejecución considerablemente largo, de aproximadamente 2 a 3 horas. Aunque el proceso de extracción de estas características es detallado, la precisión de las recomendaciones obtenidas no es del todo satisfactoria. Es posible que se necesite optimizar la heurística de distancia utilizada para mejorar la precisión de los resultados.
 
-6. Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
+## 6. Estrategias de Indexación y Procesamiento Eficiente
+Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para cálculos de **distancia euclidiana** y **Milvus** para evaluaciones de **coseno de similitud** proporciona una base robusta que permite generar recomendaciones rápidas y precisas. Esto facilita que el sistema se adapte a las necesidades de los usuarios en tiempo real, maximizando la experiencia y la satisfacción del usuario final.
 
-**Observaciones:**
-- **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
-- **B-Trees** ofrecen tiempos de búsqueda rápidos para espacios de características de baja a moderada dimensionalidad.
-- La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
 
 
 ## **Herramientas Utilizadas**
