@@ -231,7 +231,6 @@ El algoritmo para la **extracción de características locales SIFT** presenta u
 Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para cálculos de **distancia euclidiana** y **Milvus** para evaluaciones de **coseno de similitud** proporciona una base robusta que permite generar recomendaciones rápidas y precisas. Esto facilita que el sistema se adapte a las necesidades de los usuarios en tiempo real, maximizando la experiencia y la satisfacción del usuario final.
 
 
-
 ## **Herramientas Utilizadas**
 
 ### **Instalación**
