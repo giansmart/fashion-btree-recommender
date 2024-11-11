@@ -3,7 +3,7 @@
 ## Tabla de Contenidos
 1. [Descripción General](#descripción-general)
 2. [Objetivos del Proyecto](#objetivos-del-proyecto)
-3. [Estructuras de Datos Utilizada](#estructuras-de-datos-utilizada)
+3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
 5. [Implementación y Resultados](#implementación-y-resultados)
 6. [Medición de Eficiencia](#medición-de-eficiencia)
@@ -30,7 +30,7 @@ El objetivo principal del proyecto es construir un sistema de recomendación que
 - **Desarrollo de un motor de recomendación**: Implementar técnicas de **Filtrado Basado en Contenido** para sugerir productos de interés para el usuario, basándose en la similitud de características de productos.
 
 
-### **Estructura de Datos utilizada**
+### **Estructuras de Datos utilizadas**
 
 En este proyecto, se han implementado varias estructuras de datos fundamentales para garantizar la eficiencia y escalabilidad del sistema de recomendación. A continuación, se detallan las principales estructuras de datos utilizadas y su aplicación en el proyecto:
 
