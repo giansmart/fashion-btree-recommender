@@ -159,12 +159,12 @@ En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y o
 
 ### **Gráfico de Optimización**
 
-![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
+![Búsqueda en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
 
 *Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
 
 
-![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
+![Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
 
 *Figura 2: Curva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
 
@@ -190,8 +190,13 @@ Este documento proporciona un análisis comparativo del uso de memoria al insert
 - **Diferencias en Búsqueda vs. Inserción**: El archivo de búsqueda muestra un uso de memoria inicial más alto (102.5 MiB) y un incremento más alto durante la inserción.
 - **Consistencia en el Proceso**: Aunque el uso de memoria en los archivos de inserción es similar, hay diferencias en los incrementos detallados en la línea 16, mostrando una variabilidad en la carga de memoria.
 
-#### Conclusión
+
 Este análisis permite visualizar cómo varía el uso de memoria durante el proceso de inserción y búsqueda en el B-tree. Identificar estas diferencias es crucial para la optimización y mejora de la gestión de memoria en aplicaciones de estructuras de datos complejas.
+
+Por último, identificamos que al elaborar la comparación con ambos métodos, los resultados son muy similares:
+
+![Comparación resultados memoria](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/Comparacio%CC%81n%20resultados.jpeg)
+
 
 
 ### **Optimización del Uso de Recursos**
