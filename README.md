@@ -160,15 +160,48 @@ Se utiliza para comparar la similitud entre los vectores característicos de los
 
 En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
 
-### **Resultados de Rendimiento**
 
-Se han realizado pruebas exhaustivas para evaluar la eficiencia y el rendimiento del sistema bajo diferentes cargas de datos. A continuación, se presentan los resultados obtenidos:
+### **Gráfico de Optimización**
 
-REVISAR:
-| **Estructura de Datos / Técnica** | **Tiempo de Inserción** | **Tiempo de Búsqueda** | **Uso de Memoria** |
-|-----------------------------------|-------------------------|------------------------|---------------------|
-| **B-Tree (Distancia Euclidiana)** | 30ms                    | 25ms                   | 500MB               |
-| **Milvus (Coseno de Similitud)**  | 50ms                    | 20ms                   | 400MB               |
+![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
+
+*Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
+
+
+![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
+
+*Figura 2: Curva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
+
+### Análisis de Uso de Memoria en B-tree
+
+Este documento proporciona un análisis comparativo del uso de memoria al insertar datos en un B-tree, basado en los registros de memoria capturados durante las pruebas de inserción y búsqueda en Python.
+
+
+#### Cuadro Comparativo de Uso de Memoria
+
+```markdown
+| **Archivo**               | **Memoria Inicial** | **Memoria Máx. Uso** | **Incremento Memoria (inserción)** | **Observaciones**                                   |
+|---------------------------|---------------------|----------------------|-------------------------------------|-----------------------------------------------------|
+| **InsertBthree.py (1)**  | 93.0 MiB            | 639.1 MiB            | 334.0 MiB                          | Incremento constante en la línea 16 durante la inserción. |
+| **InsertBthree.py (2)**  | 92.7 MiB            | 639.4 MiB            | 260.5 MiB                          | Uso de memoria menor en la línea 16 comparado con el primero. |
+| **InsertBthree.py (3)**  | 92.8 MiB            | 639.2 MiB            | 260.4 MiB                          | Similar al segundo, con leve variación.               |
+| **BusquedaInsertBthree.py (1)** | 102.5 MiB       | 655.4 MiB            | 346.6 MiB                          | Uso de memoria notablemente más alto en búsqueda y inserción. |
+| **BusquedaInsertBthree.py (2)** | 92.8 MiB        | 645.5 MiB            | 345.2 MiB                          | Incremento en la línea 16 y proceso de búsqueda posterior. |
+```
+
+#### Observaciones Generales
+- **Incrementos de Memoria en la Inserción**: La memoria aumenta considerablemente en la línea 16 en todos los casos, variando entre 260.4 MiB y 346.6 MiB.
+- **Diferencias en Búsqueda vs. Inserción**: El archivo de búsqueda muestra un uso de memoria inicial más alto (102.5 MiB) y un incremento más alto durante la inserción.
+- **Consistencia en el Proceso**: Aunque el uso de memoria en los archivos de inserción es similar, hay diferencias en los incrementos detallados en la línea 16, mostrando una variabilidad en la carga de memoria.
+
+#### Conclusión
+Este análisis permite visualizar cómo varía el uso de memoria durante el proceso de inserción y búsqueda en el B-tree. Identificar estas diferencias es crucial para la optimización y mejora de la gestión de memoria en aplicaciones de estructuras de datos complejas.
+
+
+
+### **Conclusiones sobre la Optimización**
+
+Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
 
 **Observaciones:**
 - **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
@@ -185,26 +218,6 @@ Se ha implementado una gestión cuidadosa de la memoria para asegurar que el sis
 #### **Balanceo de Carga**
 
 El sistema está diseñado para distribuir de manera equilibrada las solicitudes de recomendación entre los distintos componentes (**B-Trees** y **Milvus**), evitando cuellos de botella y asegurando un rendimiento consistente bajo cargas variables.
-
-### **Gráfico de Optimización**
-
-
-REVISAR
-
-
-![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
-
-*Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
-
-
-![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
-
-*Figura 2: Curva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
-
-### **Conclusiones sobre la Optimización**
-
-Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
-
 
 
 
