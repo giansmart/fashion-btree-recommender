@@ -14,6 +14,7 @@
 11. [Licencia](#licencia)
 12. [Referencias](#referencias)
 13. [Autores](#autores)
+14. [Video del proyecto](#video-del-proyecto)
     
 
 
@@ -325,3 +326,9 @@ Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` 
 - [Giancarlo Poémape](www.linkedin.com/in/giancarlopoemape)
 - [Jhersin García](https://www.linkedin.com/in/jhersin-garcia-75aa6867/)
 - [Paul Rojas](https://www.linkedin.com/in/paul-rojas-6a3b4a31/)
+
+## **Video del proyecto**
+
+- [Video de Yputube](https://www.youtube.com/watch?v=IPsHMtoKfMA)
+
+
