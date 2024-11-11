@@ -3,7 +3,7 @@
 ## Tabla de Contenidos
 1. [Descripción General](#descripción-general)
 2. [Objetivos del Proyecto](#objetivos-del-proyecto)
-3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
+3. [Estructuras de Datos Utilizada](#estructuras-de-datos-utilizada)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
 5. [Implementación y Resultados](#implementación-y-resultados)
 6. [Medición de Eficiencia](#medición-de-eficiencia)
@@ -159,13 +159,11 @@ En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y o
 
 ### **Gráfico de Optimización**
 
-![Búsqueda en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
-
+![Búsqueda en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/BthreeLibrary.png)
 *Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
 
 
 ![Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
-
 *Figura 2: Curva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
 
 ### Análisis de Uso de Memoria en B-tree
