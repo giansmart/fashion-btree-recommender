@@ -212,9 +212,13 @@ El sistema está diseñado para distribuir de manera equilibrada las solicitudes
 ## **Conclusiones**
 
 1.⁠ ⁠El sistema de recomendación de filtro colaborativo funciona correctamente, y las consultas realizadas son bastante similares al query dado.
+
 2.⁠ ⁠Se ha implementado el sistema de recomendación utilizando la estructura de datos B-tree en dos situaciones: la primera, utilizando la memoria RAM, y la segunda, utilizando el espacio en la memoria secundaria (SSD).
+
 3.⁠ ⁠La implementación del B-tree que utiliza la memoria secundaria consume aproximadamente un tercio de la memoria en comparación con la implementación que utiliza la RAM.
+
 4.⁠ ⁠En situaciones de memoria RAM limitada, es recomendable optar por utilizar la memoria secundaria, aunque esto podría implicar una pérdida en el tiempo de ejecución.
+
 5.⁠ ⁠El algoritmo para la extracción de características locales SIFT tiene un tiempo de ejecución bastante largo, cerca de 2 a 3 horas. A pesar de esto, la recomendación que genera no es muy precisa. Es posible que sea necesario afinar la heurística de distancia utilizada para mejorar los resultados.
 
 6. Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
