@@ -5,8 +5,8 @@
 2. [Objetivos del Proyecto](#objetivos-del-proyecto)
 3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
-5. [Eficiencia y Optimización](#eficiencia-y-optimización)
-6. [Pruebas y Resultados](#pruebas-y-resultados)
+5. [Implementación](#implementacion)
+6. [Eficiencia y Optimización](#eficiencia-y-optimización)
 7. [Herramientas Utilizadas](#herramientas-utilizadas)
 8. [Estructura del proyecto](#estructura-del-proyecto)
 9. [Contribución](#contribuciones)
@@ -153,7 +153,7 @@ Se utiliza para comparar la similitud entre los vectores característicos de los
 | **Distancia Euclidiana (B-Tree)**| - **Intuitiva y fácil de interpretar:** La distancia euclidiana es una medida directa y comprensible de la similitud.<br>- **Captura diferencias de magnitud:** Considera tanto la dirección como la magnitud de los vectores, proporcionando una medida más completa de la similitud.<br>- **Eficiente para datos de baja dimensionalidad:** Funciona bien cuando el número de características es relativamente pequeño. | - **Sensible a la escala de las características:** Las diferencias en la escala de los datos pueden afectar significativamente la medida de similitud.<br>- **Menos eficiente en alta dimensionalidad:** Su rendimiento puede degradarse cuando se trabaja con datos de muchas dimensiones.<br>- **Puede requerir normalización de datos:** Para mitigar la sensibilidad a la escala, a menudo es necesario normalizar los datos antes de calcular la distancia euclidiana. |
 
 
-
+## **Implementación y Resultados**
 
 ## **Eficiencia y Optimización**
 
@@ -218,9 +218,6 @@ Se ha implementado una gestión cuidadosa de la memoria para asegurar que el sis
 
 El sistema está diseñado para distribuir de manera equilibrada las solicitudes de recomendación entre los distintos componentes (**B-Trees** y **Milvus**), evitando cuellos de botella y asegurando un rendimiento consistente bajo cargas variables.
 
-
-
-## **Pruebas y resultados**
 
 
 
