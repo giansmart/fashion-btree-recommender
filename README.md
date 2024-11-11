@@ -6,13 +6,14 @@
 3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
 5. [Implementación y Resultados](#implementación-y-resultados)
-6. [Eficiencia y Optimización](#eficiencia-y-optimización)
-7. [Herramientas Utilizadas](#herramientas-utilizadas)
-8. [Estructura del proyecto](#estructura-del-proyecto)
-9. [Contribución](#contribuciones)
-10. [Licencia](#licencia)
-11. [Referencias](#referencias)
-12. [Autores](#autores)
+6. [Medición de Eficiencia](#medición-de-eficiencia)
+7. [Conclusiones](#conclusiones)
+8. [Herramientas Utilizadas](#herramientas-utilizadas)
+9. [Estructura del proyecto](#estructura-del-proyecto)
+10. [Contribución](#contribuciones)
+11. [Licencia](#licencia)
+12. [Referencias](#referencias)
+13. [Autores](#autores)
     
 
 
@@ -155,7 +156,7 @@ Se utiliza para comparar la similitud entre los vectores característicos de los
 
 ## **Implementación y Resultados**
 
-## **Eficiencia y Optimización**
+## **Medición de Eficiencia**
 
 En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
 
@@ -197,17 +198,6 @@ Este documento proporciona un análisis comparativo del uso de memoria al insert
 Este análisis permite visualizar cómo varía el uso de memoria durante el proceso de inserción y búsqueda en el B-tree. Identificar estas diferencias es crucial para la optimización y mejora de la gestión de memoria en aplicaciones de estructuras de datos complejas.
 
 
-
-### **Conclusiones sobre la Optimización**
-
-Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
-
-**Observaciones:**
-- **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
-- **B-Trees** ofrecen tiempos de búsqueda rápidos para espacios de características de baja a moderada dimensionalidad.
-- La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
-
-
 ### **Optimización del Uso de Recursos**
 
 #### **Gestión Eficiente de Memoria**
@@ -219,8 +209,20 @@ Se ha implementado una gestión cuidadosa de la memoria para asegurar que el sis
 El sistema está diseñado para distribuir de manera equilibrada las solicitudes de recomendación entre los distintos componentes (**B-Trees** y **Milvus**), evitando cuellos de botella y asegurando un rendimiento consistente bajo cargas variables.
 
 
+## **Conclusiones**
 
+1.⁠ ⁠El sistema de recomendación de filtro colaborativo funciona correctamente, y las consultas realizadas son bastante similares al query dado.
+2.⁠ ⁠Se ha implementado el sistema de recomendación utilizando la estructura de datos B-tree en dos situaciones: la primera, utilizando la memoria RAM, y la segunda, utilizando el espacio en la memoria secundaria (SSD).
+3.⁠ ⁠La implementación del B-tree que utiliza la memoria secundaria consume aproximadamente un tercio de la memoria en comparación con la implementación que utiliza la RAM.
+4.⁠ ⁠En situaciones de memoria RAM limitada, es recomendable optar por utilizar la memoria secundaria, aunque esto podría implicar una pérdida en el tiempo de ejecución.
+5.⁠ ⁠El algoritmo para la extracción de características locales SIFT tiene un tiempo de ejecución bastante largo, cerca de 2 a 3 horas. A pesar de esto, la recomendación que genera no es muy precisa. Es posible que sea necesario afinar la heurística de distancia utilizada para mejorar los resultados.
 
+6. Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
+
+**Observaciones:**
+- **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
+- **B-Trees** ofrecen tiempos de búsqueda rápidos para espacios de características de baja a moderada dimensionalidad.
+- La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
 
 
 ## **Herramientas a utilizar**
