@@ -5,16 +5,13 @@
 2. [Objetivos del Proyecto](#objetivos-del-proyecto)
 3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
-   - [Filtrado Basado en Contenido](#filtrado-basado-en-contenido)
 5. [Eficiencia y Optimización](#eficiencia-y-optimización)
-7. [Simulación de Flujo de Datos en Tiempo Real](#simulación-de-flujo-de-datos-en-tiempo-real)
-8. [Pruebas y Resultados](#pruebas-y-resultados)
+6. [Pruebas y Resultados](#pruebas-y-resultados)
 9. [Análisis de Rendimiento](#análisis-de-rendimiento)
-10. [Documentación y Presentación](#documentación-y-presentación)
-11. [Herramientas Utilizadas](#herramientas-utilizadas)
-12. [Contribuciones](#contribuciones)
+10. [Herramientas Utilizadas](#herramientas-utilizadas)
+11. [Estructura del proyecto](#estructura-del-proyecto)
+12. [Contribución](#contribuciones)
 13. [Licencia](#licencia)
-14. [Contacto](#contacto)
 15. [Referencias](#referencias)
 16. [Autores](#autores)
     
@@ -88,8 +85,6 @@ Los **Árboles B** son una estructura de datos balanceada que permite operacione
 - **Flexibilidad:** Soportan múltiples niveles de índices, lo que facilita búsquedas complejas basadas en múltiples atributos.
 
 
-
-
 ## **Algoritmos de Recomendación**
 
 ### **Filtrado Basado en Contenido**
@@ -109,37 +104,9 @@ El sistema utiliza **Filtrado Basado en Contenido** para recomendar productos a 
 1. **Extracción de Características:** Utilizamos técnicas de procesamiento de texto y análisis de imágenes para extraer atributos relevantes de cada producto.
 2. **Vectorización:** Convertimos las características extraídas en vectores numéricos utilizando métodos como **TF-IDF** para texto y **embeddings** para imágenes.
 3. **Cálculo de Similitud:** Medimos la similitud entre productos utilizando métricas como el **coseno de similitud** y la **distancia euclidiana**.
-4. **Indexación de Vectores:** Utilizamos **KD-Tree** para acelerar las búsquedas de similitud.
+4. **Indexación de Vectores:** Utilizamos **-Tree** para acelerar las búsquedas de similitud.
 5. **Generación de Recomendaciones:** Basándonos en las similitudes calculadas, sugerimos productos que comparten características similares a los que el usuario ha mostrado interés.
 
-#### **Implementación en el Sistema**
-
-A continuación, se muestra un ejemplo de cómo se implementa el Filtrado Basado en Contenido en el sistema:
-
-```python
-from sklearn.feature_extraction.text import TfidfVectorizer
-from sklearn.neighbors import KDTree
-
-class RecommenderSystem:
-    def __init__(self, products):
-        self.products = products
-        self.vectorizer = TfidfVectorizer()
-        self.product_vectors = self.vectorizer.fit_transform([product['description'] for product in products])
-        self.kdtree = KDTree(self.product_vectors.toarray())
-
-    def get_recommendations_method1(self, product_id, k=5):
-        # Método 1: Usando KD-Tree
-        index = next(i for i, product in enumerate(self.products) if product['id'] == product_id)
-        distances, indices = self.kdtree.query([self.product_vectors.toarray()[index]], k=k+1)
-        return [self.products[i] for i in indices.flatten() if i != index]
-
-    def get_recommendations_method2(self, product_id, k=5):
-        # Método 2: Búsqueda Exhaustiva
-        index = next(i for i, product in enumerate(self.products) if product['id'] == product_id)
-        similarities = self.product_vectors * self.product_vectors[index].T
-        similar_indices = similarities.toarray().flatten().argsort()[-k-1:-1][::-1]
-        return [self.products[i] for i in similar_indices]
-```
 
 ### **Métricas de Similitud**
 
@@ -179,68 +146,51 @@ En nuestro proyecot fue utilizado en MILVUS.
 Se utiliza para comparar la similitud entre los vectores característicos de los productos, identificando aquellos que comparten características similares.
 
 
-#### **Comparación de Medidas de Similitud**
+### **Comparación de Métricas de Similitud**
 
-| **Medidas**                      | **Ventajas**                                                                                                              | **Desventajas**                                                                                              |
+| **Métricas**                      | **Ventajas**                                                                                                              | **Desventajas**                                                                                              |
 |----------------------------------|---------------------------------------------------------------------------------------------------------------------------|--------------------------------------------------------------------------------------------------------------|
-| **Coseno de Similitud (Milvus)** | - Independiente de la magnitud<br>- Ideal para vectores de texto<br>- Optimizado para búsquedas de alta dimensionalidad en Milvus | - No captura diferencias de magnitud<br>- Requiere configuración específica en Milvus                         |
-| **Distancia Euclidiana (Árbol B)** | - Intuitiva y fácil de interpretar<br>- Captura diferencias de magnitud<br>- Eficiente para datos de baja dimensionalidad | - Sensible a la escala de las características<br>- Menos eficiente en alta dimensionalidad<br>- Puede requerir normalización de datos |
+| **Coseno de Similitud (Milvus)** | - **Independiente de la magnitud:** La similitud se basa en la orientación de los vectores, no en su tamaño.<br>- **Ideal para vectores de texto:** Funciona bien con datos textuales representados en espacios vectoriales.<br>- **Optimizado para búsquedas de alta dimensionalidad en Milvus:** Milvus está diseñado para manejar eficientemente grandes volúmenes de datos de alta dimensión. | - **No captura diferencias de magnitud:** No considera la magnitud de los vectores, lo que puede ser una limitación en ciertos contextos.<br>- **Requiere configuración específica en Milvus:** Necesita ajustes y optimizaciones particulares para aprovechar al máximo las capacidades de Milvus.                         |
+| **Distancia Euclidiana (B-Tree)**| - **Intuitiva y fácil de interpretar:** La distancia euclidiana es una medida directa y comprensible de la similitud.<br>- **Captura diferencias de magnitud:** Considera tanto la dirección como la magnitud de los vectores, proporcionando una medida más completa de la similitud.<br>- **Eficiente para datos de baja dimensionalidad:** Funciona bien cuando el número de características es relativamente pequeño. | - **Sensible a la escala de las características:** Las diferencias en la escala de los datos pueden afectar significativamente la medida de similitud.<br>- **Menos eficiente en alta dimensionalidad:** Su rendimiento puede degradarse cuando se trabaja con datos de muchas dimensiones.<br>- **Puede requerir normalización de datos:** Para mitigar la sensibilidad a la escala, a menudo es necesario normalizar los datos antes de calcular la distancia euclidiana. |
+
 
 
 
 ## **Eficiencia y Optimización**
 
-En el desarrollo del **Fashion B-Tree Recommender**, se ha puesto un énfasis especial en garantizar que el sistema sea eficiente y escalable. A continuación, se detallan las estrategias y técnicas implementadas para optimizar el rendimiento y manejar grandes volúmenes de datos de manera efectiva.
+En el desarrollo del **Fashion B-Tree Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
 
 ### **Optimización de Estructuras de Datos**
 
-#### **Uso de B-Trees para Distancia Euclidiana**
+#### **Uso de B-Trees con Distancia Euclidiana**
 
-Los **B-Trees** son una estructura de datos balanceada que facilita operaciones de búsqueda, inserción y eliminación en tiempo **O(log n)**. En nuestro sistema, los B-Trees se utilizan para indexar los vectores de características de los productos, permitiendo búsquedas rápidas basadas en la **distancia euclidiana**.
+Los **B-Trees** son estructuras de datos balanceadas que permiten operaciones de búsqueda, inserción y eliminación en tiempo **O(log n)**. En nuestro sistema, los B-Trees se utilizan para indexar los vectores de características de los productos, facilitando búsquedas rápidas basadas en la **distancia euclidiana**.
 
 **Ventajas:**
-- **Balance Automático:** Los B-Trees mantienen el árbol equilibrado, asegurando que las operaciones de búsqueda se realicen de manera eficiente incluso con un gran número de elementos.
-- **Eficiencia en Inserciones y Búsquedas:** La complejidad logarítmica de las operaciones garantiza tiempos de respuesta rápidos.
-- **Optimización para Discos:** Diseñados para minimizar los accesos al disco, lo que es crucial cuando se manejan grandes bases de datos que no caben completamente en la memoria RAM.
+- **Balance Automático:** Los B-Trees mantienen el árbol equilibrado, garantizando tiempos de búsqueda logarítmicos incluso con un gran número de elementos.
+- **Eficiencia en Inserciones y Búsquedas:** La complejidad logarítmica de las operaciones asegura tiempos de respuesta rápidos.
+- **Optimización para Discos:** Diseñados para minimizar los accesos al disco, lo cual es crucial para bases de datos grandes que no caben completamente en la memoria RAM.
+
+**Desventajas:**
+- **Sensible a la escala de las características:** Las diferencias en la escala de los datos pueden afectar significativamente la medida de similitud.
+- **Menos eficiente en alta dimensionalidad:** El rendimiento puede degradarse cuando se trabaja con datos de muchas dimensiones.
+- **Puede requerir normalización de datos:** Para mitigar la sensibilidad a la escala, a menudo es necesario normalizar los datos antes de calcular la distancia euclidiana.
 
 #### **Implementación de Coseno de Similitud en Milvus**
 
 **Milvus** es una base de datos de vectores de código abierto diseñada para gestionar y buscar grandes colecciones de vectores de alta dimensionalidad de manera eficiente. Utilizamos Milvus para implementar el **coseno de similitud**, aprovechando sus capacidades de indexación y búsqueda optimizadas.
 
 **Ventajas:**
-- **Optimización para Alta Dimensionalidad:** Milvus está diseñado para manejar vectores de alta dimensión, lo que es ideal para representaciones complejas de productos.
+- **Independiente de la magnitud:** La similitud se basa en la orientación de los vectores, no en su tamaño.
+- **Ideal para vectores de texto:** Funciona bien con datos textuales representados en espacios vectoriales.
+- **Optimizado para búsquedas de alta dimensionalidad en Milvus:** Milvus está diseñado para manejar eficientemente grandes volúmenes de datos de alta dimensión.
 - **Búsquedas Rápidas y Precisas:** Utiliza algoritmos avanzados como **IVF (Inverted File)** y **HNSW (Hierarchical Navigable Small World)** para acelerar las búsquedas de similitud.
-- **Escalabilidad Horizontal:** Permite escalar el sistema añadiendo más nodos, lo que facilita el manejo de incrementos en el volumen de datos sin degradar el rendimiento.
+- **Escalabilidad Horizontal:** Permite escalar el sistema añadiendo más nodos, facilitando el manejo de incrementos en el volumen de datos sin degradar el rendimiento.
 
-### **Indexación y Búsqueda Eficiente**
+**Desventajas:**
+- **No captura diferencias de magnitud:** No considera la magnitud de los vectores, lo que puede ser una limitación en ciertos contextos.
+- **Requiere configuración específica en Milvus:** Necesita ajustes y optimizaciones particulares para aprovechar al máximo las capacidades de Milvus.
 
-#### **KD-Tree para Filtrado Basado en Contenido**
-
-El uso de **KD-Trees** complementa nuestra estrategia de indexación, especialmente para el **Filtrado Basado en Contenido**. Los KD-Trees facilitan la búsqueda eficiente de los vecinos más cercanos en espacios multidimensionales.
-
-**Ventajas:**
-- **Rendimiento Mejorado:** Reduce significativamente el tiempo de búsqueda comparado con métodos de búsqueda exhaustiva.
-- **Adaptabilidad:** Funciona bien con datos de baja a moderada dimensionalidad, siendo ideal para ciertas representaciones de productos.
-
-### **Caching y Almacenamiento en Memoria**
-
-#### **Caching de Resultados Frecuentes**
-
-Para reducir los tiempos de respuesta y minimizar las consultas repetitivas a la base de datos, se ha implementado un sistema de **caching** para almacenar en memoria las recomendaciones más frecuentes.
-
-**Beneficios:**
-- **Reducción de Latencia:** Acceso instantáneo a recomendaciones populares sin necesidad de recalcular.
-- **Optimización de Recursos:** Disminuye la carga en las estructuras de datos subyacentes, permitiendo que el sistema maneje más solicitudes simultáneas.
-
-### **Paralelización y Procesamiento en Batch**
-
-#### **Procesamiento Paralelo de Datos**
-
-Aprovechando las capacidades de procesamiento paralelo de Python y las librerías optimizadas como **NumPy** y **scikit-learn**, se ha implementado el procesamiento en **batch** para la extracción y vectorización de características. Esto permite manejar grandes conjuntos de datos de manera eficiente.
-
-**Ventajas:**
-- **Aceleración del Proceso:** Reduce el tiempo total necesario para procesar y preparar los datos para la recomendación.
-- **Escalabilidad:** Facilita la adaptación del sistema a medida que aumenta el volumen de datos sin un incremento proporcional en el tiempo de procesamiento.
 
 ### **Benchmarking y Resultados de Rendimiento**
 
@@ -250,13 +200,11 @@ Se han realizado pruebas exhaustivas para evaluar la eficiencia y el rendimiento
 |-----------------------------------|-------------------------|------------------------|---------------------|
 | **B-Tree (Distancia Euclidiana)** | 30ms                    | 25ms                   | 500MB               |
 | **Milvus (Coseno de Similitud)**  | 50ms                    | 20ms                   | 400MB               |
-| **KD-Tree**                       | 15ms                    | 10ms                   | 350MB               |
-| **Caching de Resultados**         | N/A                     | 5ms                    | 200MB               |
 
 **Observaciones:**
-- **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido que el B-Tree en consultas similares.
-- **KD-Tree** ofrece tiempos de búsqueda extremadamente rápidos para espacios de características de baja a moderada dimensionalidad.
-- El **caching** reduce aún más los tiempos de respuesta para recomendaciones populares, logrando latencias mínimas.
+- **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
+- **B-Trees** ofrecen tiempos de búsqueda rápidos para espacios de características de baja a moderada dimensionalidad.
+- La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
 
 ### **Optimización del Uso de Recursos**
 
@@ -266,23 +214,28 @@ Se ha implementado una gestión cuidadosa de la memoria para asegurar que el sis
 
 #### **Balanceo de Carga**
 
-El sistema está diseñado para distribuir de manera equilibrada las solicitudes de recomendación entre los distintos componentes (B-Trees, Milvus, Caching), evitando cuellos de botella y asegurando un rendimiento consistente bajo cargas variables.
+El sistema está diseñado para distribuir de manera equilibrada las solicitudes de recomendación entre los distintos componentes (**B-Trees** y **Milvus**), evitando cuellos de botella y asegurando un rendimiento consistente bajo cargas variables.
 
 ### **Gráfico de Optimización**
 
-![Comparación de Eficiencia](https://path/to/efficiency_comparison_graph.png)
+![Comparación de Eficiencia](path/to/efficiency_comparison_graph.png)
 
 *Figura 1: Comparación de eficiencia entre diferentes estructuras de datos y técnicas implementadas.*
 
 ### **Conclusiones sobre la Optimización**
 
-Las estrategias de **indexación**, **caching**, y **procesamiento paralelo** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
+Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
+
+
+## **Pruebas y resultados**
 
 
 
 
 
-## **Instalación**
+## **Herramientas a utilizar**
+
+### **Instalación**
 
 1. **Clonar el repositorio:**
 
@@ -295,7 +248,7 @@ Las estrategias de **indexación**, **caching**, y **procesamiento paralelo** im
     pip install -r requirements.txt
     ```
 
-**Dependencias**
+###**Dependencias**
 El proyecto utiliza las siguientes bibliotecas:
 
 - **sortedcontainers**: Implementación eficiente de contenedores ordenados.
@@ -303,7 +256,7 @@ El proyecto utiliza las siguientes bibliotecas:
 - **scikit-learn**: Herramientas para aprendizaje automático.
 - **Pillow**: Manipulación de imágenes.
 
-## **Uso del Sistema**
+### **Uso del Sistema**
 
 1. **Preparar el Dataset:**
    - Descarga y extrae el dataset desde [Kaggle](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/data).
@@ -313,9 +266,8 @@ El proyecto utiliza las siguientes bibliotecas:
    - Carga el dataset con pandas.
    - Utiliza los algoritmos de filtrado por contenido y la estructura de árbol B para realizar las recomendaciones.
 
----
 
-## **Ejemplo de Ejecución**
+### **Ejemplo de Ejecución**
 
 Aquí tienes un ejemplo básico para realizar una recomendación:
 
