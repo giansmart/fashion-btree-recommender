@@ -190,20 +190,20 @@ El sistema está diseñado para distribuir de manera equilibrada las solicitudes
 
 
 REVISAR
-![Comparación de Eficiencia](path/to/efficiency_comparison_graph.png)
 
 
 ![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
 
+*Figura 1: Curva de Uso de Memoria según el tiempo en Inserción con B-Tree*
 
 
-*Figura 1: Comparación de eficiencia entre diferentes estructuras de datos y técnicas implementadas.*
+![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
+
+*Figura 2: urva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
 
 ### **Conclusiones sobre la Optimización**
 
 Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
-
-
 
 
 
