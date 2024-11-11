@@ -30,7 +30,7 @@ El objetivo principal del proyecto es construir un sistema de recomendación que
 - **Desarrollo de un motor de recomendación**: Implementar técnicas de **Filtrado Basado en Contenido** para sugerir productos de interés para el usuario, basándose en la similitud de características de productos.
 
 
-### **Estructura de Datos utilizada*
+### **Estructura de Datos utilizada**
 
 
 En este proyecto, se han implementado varias estructuras de datos fundamentales para garantizar la eficiencia y escalabilidad del sistema de recomendación. A continuación, se detallan las principales estructuras de datos utilizadas y su aplicación en el proyecto:
@@ -199,7 +199,7 @@ REVISAR
 
 ![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/Insertar/my_func.png?raw=true)
 
-*Figura 2: urva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
+*Figura 2: Curva de Uso de Memoria según el tiempo en Búsqueda con B-Tree*
 
 ### **Conclusiones sobre la Optimización**
 
