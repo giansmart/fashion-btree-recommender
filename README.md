@@ -5,7 +5,7 @@
 2. [Objetivos del Proyecto](#objetivos-del-proyecto)
 3. [Estructuras de Datos Utilizadas](#estructuras-de-datos-utilizadas)
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
-5. [Implementación y Resultados](#implementacion)
+5. [Implementación y Resultados](#implementación-y-resultados)
 6. [Eficiencia y Optimización](#eficiencia-y-optimización)
 7. [Herramientas Utilizadas](#herramientas-utilizadas)
 8. [Estructura del proyecto](#estructura-del-proyecto)
