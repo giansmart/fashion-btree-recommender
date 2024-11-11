@@ -153,13 +153,7 @@ En nuestro proyecot fue utilizado en MILVUS.
 
 **Fórmula:**
 
-
-\[
-\cos(\theta) = \frac{A \cdot B}{\|A\| \|B\|}
-\]
-
-![Coseno de Similitud](https://latex.codecogs.com/svg.image?\cos(\theta)&space;=&space;\frac{A\cdot B}{\|A\|\|B\|})
-
+![Coseno de Similitud](https://latex.codecogs.com/svg.image?\cos(\theta)=\frac{A\cdot B}{\left\|A\right\|\left\|B\right\|})
 
 **Interpretación:**
 - Un coseno de similitud de **1** indica que los vectores son idénticos en dirección.
