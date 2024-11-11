@@ -1,13 +1,14 @@
 import pandas as pd
-from BThreeLibrary import BThree
+from BThree2 import BTreeCustom
 from memory_profiler import profile
+
 
 fp = open('memory_profiler.log', 'a+')
 @profile(stream=fp)
 def bthree():
     # Leer el dataframe de productos y instanciar el árbol B
     product_df = pd.read_csv('product_df.csv')
-    btree = BThree()
+    btree = BTreeCustom(local_btree=True, degree=4)
 
     ###########################################################
     # Insertar productos en el Arbol B
