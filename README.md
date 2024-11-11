@@ -329,6 +329,6 @@ Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` 
 
 ## **Video del proyecto**
 
-- [Video de Yputube](https://www.youtube.com/watch?v=IPsHMtoKfMA)
+- [Video de Youtube](https://www.youtube.com/watch?v=IPsHMtoKfMA)
 
 
