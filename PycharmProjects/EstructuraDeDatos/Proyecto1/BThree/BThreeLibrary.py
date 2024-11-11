@@ -10,11 +10,6 @@ class BThree:
     # print((feature_vector, product_id))
     self.tree.add((feature_vector, product_id))
 
-  # print three
-  def print_tree(self):
-    for product in self.tree:
-      print(product)
-
   def search_similar(self, target_vector, k=5):
     # Buscar los productos más cercanos usando la distancia euclidiana
     distances = [(self.euclidean_distance(target_vector, np.array(product[0])), product[1])

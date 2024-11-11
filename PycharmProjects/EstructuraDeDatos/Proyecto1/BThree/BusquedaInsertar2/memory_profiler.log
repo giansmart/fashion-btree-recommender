@@ -1,0 +1,31 @@
+Filename: BusquedaInsertBthree2.py
+
+Line #    Mem usage    Increment  Occurrences   Line Contents
+=============================================================
+     7     95.0 MiB     95.0 MiB           1   @profile(stream=fp)
+     8                                         def bthree():
+     9                                             # Leer el dataframe de productos y instanciar el árbol B
+    10    186.2 MiB     91.2 MiB           1       product_df = pd.read_csv('product_df.csv')
+    11    186.2 MiB      0.0 MiB           1       btree = BTreeCustom(local_btree=True, degree=4)
+    12                                         
+    13                                             ###########################################################
+    14                                             # Insertar productos en el Arbol B
+    15                                             ###########################################################
+    16    187.5 MiB   -746.3 MiB       44425       for index, row in product_df.iterrows():
+    17    187.5 MiB   -746.0 MiB       44424           feature_vector = row.drop('id').values
+    18    187.5 MiB   -745.3 MiB       44424           btree.insert(row['id'], feature_vector)
+    19                                         
+    20                                             ###########################################################
+    21                                             # Buscar productos similares
+    22                                             ###########################################################
+    23                                             # Seleccionar un producto de referencia
+    24    187.4 MiB     -0.0 MiB           1       target_product_id = 1634
+    25                                             # Obtener el vector de características del producto de referencia
+    26    187.5 MiB      0.1 MiB           1       target_vector = product_df[product_df['id'] == target_product_id].values[0][1:]
+    27                                             # Buscar productos similares al producto de referencia
+    28    193.4 MiB      5.8 MiB           1       recommended_products = btree.search_similar(target_vector, k=8)
+    29                                             # Mostrar IDs de los productos recomendados
+    30    193.4 MiB      0.0 MiB           9       recommended_product_ids = [product[1] for product in recommended_products]
+    31    193.4 MiB      0.0 MiB           1       return btree, target_product_id, recommended_product_ids
+
+

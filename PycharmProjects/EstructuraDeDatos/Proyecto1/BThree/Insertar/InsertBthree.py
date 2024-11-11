@@ -1,12 +1,11 @@
 import pandas as pd
-from BThree import BThree
+from Proyecto1.BThree.BusquedaInsertar.BThreeLibrary import BThree
 from memory_profiler import profile
-import time
 
-fp = open('BusquedaInsertar/memory_profiler.log', 'a+')
+fp = open('memory_profiler.log', 'a+')
 @profile(stream=fp)
 def insert_bthree():
-    product_df = pd.read_csv('product_df.csv')
+    product_df = pd.read_csv('../BusquedaInsertar2/product_df.csv')
 
     btree = BThree()
 
