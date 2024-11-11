@@ -11,3 +11,9 @@
 *.tfvars.json
 crash.log
 crash.*.log
+*.log
+profile_result
+.idea
+*.db
+*.lock
+.DS_Store
