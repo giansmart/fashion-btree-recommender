@@ -7,13 +7,12 @@
 4. [Algoritmos de Recomendación](#algoritmos-de-recomendación)
 5. [Eficiencia y Optimización](#eficiencia-y-optimización)
 6. [Pruebas y Resultados](#pruebas-y-resultados)
-9. [Análisis de Rendimiento](#análisis-de-rendimiento)
-10. [Herramientas Utilizadas](#herramientas-utilizadas)
-11. [Estructura del proyecto](#estructura-del-proyecto)
-12. [Contribución](#contribuciones)
-13. [Licencia](#licencia)
-15. [Referencias](#referencias)
-16. [Autores](#autores)
+7. [Herramientas Utilizadas](#herramientas-utilizadas)
+8. [Estructura del proyecto](#estructura-del-proyecto)
+9. [Contribución](#contribuciones)
+10. [Licencia](#licencia)
+11. [Referencias](#referencias)
+12. [Autores](#autores)
     
 
 
