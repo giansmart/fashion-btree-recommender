@@ -10,7 +10,7 @@
 7. [Conclusiones](#conclusiones)
 8. [Herramientas Utilizadas](#herramientas-utilizadas)
 9. [Estructura del proyecto](#estructura-del-proyecto)
-10. [Contribución](#contribuciones)
+10. [Contribución](#contribución)
 11. [Licencia](#licencia)
 12. [Referencias](#referencias)
 13. [Autores](#autores)
@@ -228,7 +228,7 @@ El sistema está diseñado para distribuir de manera equilibrada las solicitudes
 - La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
 
 
-## **Herramientas a utilizar**
+## **Herramientas Utilizadas**
 
 ### **Instalación**
 
