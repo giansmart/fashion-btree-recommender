@@ -18,7 +18,7 @@
 
 
 ##  Descripción General
-Este proyecto es un sistema de recomendación de productos utilizando **filtrado por contenido** y **árboles B** como estructura de datos. Se basa en el **Fashion Product Images Dataset** de Kaggle, el cual contiene información detallada sobre productos de moda. Además, con la finalidad de poder generar una comparación de modelos, se usó MILVUS y SIFT.
+Este proyecto es un sistema de recomendación de productos utilizando **filtrado por contenido** y **árboles B** como estructura de datos. Se basa en el **Fashion Product Images Dataset** de Kaggle, el cual contiene información detallada sobre productos de moda. 
 
 - Dataset: [Fashion Product Images Dataset](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/data)
 
@@ -32,25 +32,8 @@ El objetivo principal del proyecto es construir un sistema de recomendación que
 
 ### **Estructura de Datos utilizada**
 
-
 En este proyecto, se han implementado varias estructuras de datos fundamentales para garantizar la eficiencia y escalabilidad del sistema de recomendación. A continuación, se detallan las principales estructuras de datos utilizadas y su aplicación en el proyecto:
 
-### **Filtrado por Contenido**
-
-El **Filtrado por Contenido** es una técnica de recomendación que sugiere productos similares basándose en las características de los artículos que el usuario ha interactuado previamente. Este enfoque se centra en analizar y comparar atributos específicos de los productos para determinar su similitud.
-
-**Características Consideradas:**
-- **Tipo de Producto:** Categorías como camisas, pantalones, vestidos, etc.
-- **Color:** Tonos y combinaciones de colores.
-- **Género:** Diseñado para hombres, mujeres o unisex.
-- **Material:** Tipo de tela o material utilizado.
-- **Estilo:** Casual, formal, deportivo, etc.
-
-**Proceso de Filtrado:**
-1. **Extracción de Características:** Utilizamos técnicas de procesamiento de texto y análisis de imágenes para extraer atributos relevantes de cada producto.
-2. **Vectorización:** Convertimos las características extraídas en vectores numéricos utilizando métodos como **TF-IDF** para texto y **embeddings** para imágenes.
-3. **Cálculo de Similitud:** Medimos la similitud entre productos utilizando métricas como el **coseno de similitud** y la **distancia euclidiana**.
-4. **Generación de Recomendaciones:** Basándonos en las similitudes calculadas, sugerimos productos que comparten características similares a los que el usuario ha mostrado interés.
 
 ### **Dataset**
 
@@ -155,6 +138,19 @@ Se utiliza para comparar la similitud entre los vectores característicos de los
 
 
 ## **Implementación y Resultados**
+
+Los resultados del sistema de recomendación muestran consistencia con los modelos utilizados.
+
+Utilizando el Btree, que aplica internamente distancia eucliadiana para realizar la aproximación, obtuvimos los siguientes resultados:
+
+![Resultados B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/Recommender%20Btree.jpeg)
+
+
+Respecto a los resultados usando SIFT, el modelo obtuvo un mayor tiempo de procesamiento y los resultados primeros si se aproximan muy bien, sin embargo se degrada sus resultados en los siguientes recomendaciones. Los resultados se muestran a continuación:
+
+![Resultados SIFT](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/Recommender%20SIFT.jpeg)
+
+
 
 ## **Medición de Eficiencia**
 
