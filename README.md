@@ -314,6 +314,7 @@ Este proyecto se distribuye bajo la licencia MIT. Consulta el archivo `LICENSE` 
 
 - Dataset: [Fashion Product Images Dataset en Kaggle](https://www.kaggle.com/datasets/paramaggarwal/fashion-product-images-dataset/data)
 - Documentación de [pandas](https://pandas.pydata.org/) y [scikit-learn](https://scikit-learn.org/)
+- [Memory Profiler](https://github.com/fabianp/memory_profiler)
 
 ---
 
