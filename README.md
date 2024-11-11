@@ -158,44 +158,13 @@ Se utiliza para comparar la similitud entre los vectores característicos de los
 
 ## **Eficiencia y Optimización**
 
-En el desarrollo del **Fashion B-Tree Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
+En el desarrollo del **Fashion Recommender**, se ha priorizado la eficiencia y optimización del sistema para manejar grandes volúmenes de datos de manera efectiva. A continuación, se describen las estrategias implementadas y las técnicas utilizadas para asegurar un rendimiento óptimo.
 
-### **Optimización de Estructuras de Datos**
-
-#### **Uso de B-Trees con Distancia Euclidiana**
-
-Los **B-Trees** son estructuras de datos balanceadas que permiten operaciones de búsqueda, inserción y eliminación en tiempo **O(log n)**. En nuestro sistema, los B-Trees se utilizan para indexar los vectores de características de los productos, facilitando búsquedas rápidas basadas en la **distancia euclidiana**.
-
-**Ventajas:**
-- **Balance Automático:** Los B-Trees mantienen el árbol equilibrado, garantizando tiempos de búsqueda logarítmicos incluso con un gran número de elementos.
-- **Eficiencia en Inserciones y Búsquedas:** La complejidad logarítmica de las operaciones asegura tiempos de respuesta rápidos.
-- **Optimización para Discos:** Diseñados para minimizar los accesos al disco, lo cual es crucial para bases de datos grandes que no caben completamente en la memoria RAM.
-
-**Desventajas:**
-- **Sensible a la escala de las características:** Las diferencias en la escala de los datos pueden afectar significativamente la medida de similitud.
-- **Menos eficiente en alta dimensionalidad:** El rendimiento puede degradarse cuando se trabaja con datos de muchas dimensiones.
-- **Puede requerir normalización de datos:** Para mitigar la sensibilidad a la escala, a menudo es necesario normalizar los datos antes de calcular la distancia euclidiana.
-
-#### **Implementación de Coseno de Similitud en Milvus**
-
-**Milvus** es una base de datos de vectores de código abierto diseñada para gestionar y buscar grandes colecciones de vectores de alta dimensionalidad de manera eficiente. Utilizamos Milvus para implementar el **coseno de similitud**, aprovechando sus capacidades de indexación y búsqueda optimizadas.
-
-**Ventajas:**
-- **Independiente de la magnitud:** La similitud se basa en la orientación de los vectores, no en su tamaño.
-- **Ideal para vectores de texto:** Funciona bien con datos textuales representados en espacios vectoriales.
-- **Optimizado para búsquedas de alta dimensionalidad en Milvus:** Milvus está diseñado para manejar eficientemente grandes volúmenes de datos de alta dimensión.
-- **Búsquedas Rápidas y Precisas:** Utiliza algoritmos avanzados como **IVF (Inverted File)** y **HNSW (Hierarchical Navigable Small World)** para acelerar las búsquedas de similitud.
-- **Escalabilidad Horizontal:** Permite escalar el sistema añadiendo más nodos, facilitando el manejo de incrementos en el volumen de datos sin degradar el rendimiento.
-
-**Desventajas:**
-- **No captura diferencias de magnitud:** No considera la magnitud de los vectores, lo que puede ser una limitación en ciertos contextos.
-- **Requiere configuración específica en Milvus:** Necesita ajustes y optimizaciones particulares para aprovechar al máximo las capacidades de Milvus.
-
-
-### **Benchmarking y Resultados de Rendimiento**
+### **Resultados de Rendimiento**
 
 Se han realizado pruebas exhaustivas para evaluar la eficiencia y el rendimiento del sistema bajo diferentes cargas de datos. A continuación, se presentan los resultados obtenidos:
 
+REVISAR:
 | **Estructura de Datos / Técnica** | **Tiempo de Inserción** | **Tiempo de Búsqueda** | **Uso de Memoria** |
 |-----------------------------------|-------------------------|------------------------|---------------------|
 | **B-Tree (Distancia Euclidiana)** | 30ms                    | 25ms                   | 500MB               |
@@ -205,6 +174,7 @@ Se han realizado pruebas exhaustivas para evaluar la eficiencia y el rendimiento
 - **Milvus** demuestra un excelente rendimiento en búsquedas de similitud con **coseno de similitud**, siendo más rápido en consultas similares que el B-Tree.
 - **B-Trees** ofrecen tiempos de búsqueda rápidos para espacios de características de baja a moderada dimensionalidad.
 - La combinación de **B-Trees** y **Milvus** permite un equilibrio entre eficiencia en inserciones y rapidez en búsquedas.
+
 
 ### **Optimización del Uso de Recursos**
 
@@ -218,13 +188,24 @@ El sistema está diseñado para distribuir de manera equilibrada las solicitudes
 
 ### **Gráfico de Optimización**
 
+
+REVISAR
 ![Comparación de Eficiencia](path/to/efficiency_comparison_graph.png)
+
+
+![Búsqueda por Inserción en B-Tree](https://github.com/giansmart/fashion-btree-recommender/blob/main/PycharmProjects/EstructuraDeDatos/Proyecto1/BThree/BusquedaInsertar/my_func.png?raw=true)
+
+
 
 *Figura 1: Comparación de eficiencia entre diferentes estructuras de datos y técnicas implementadas.*
 
 ### **Conclusiones sobre la Optimización**
 
 Las estrategias de **indexación** y **procesamiento eficiente** implementadas en el **Fashion B-Tree Recommender** aseguran que el sistema sea capaz de manejar grandes volúmenes de datos de manera eficiente y escalable. La combinación de **B-Trees** para **distancia euclidiana** y **Milvus** para **coseno de similitud** proporciona una base robusta para generar recomendaciones rápidas y precisas, adaptándose a las necesidades de los usuarios en tiempo real.
+
+
+
+
 
 
 ## **Pruebas y resultados**
